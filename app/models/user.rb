@@ -1,6 +1,6 @@
 class User
   include Mongoid::Document
-  has_one :authorizations, :dependent => :destroy
+  has_many :authorizations, :dependent => :destroy
   has_many :shares, foreign_key: 'from_user_id'
   
   field :name, type: String, default: "John"
