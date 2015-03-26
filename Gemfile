@@ -10,8 +10,11 @@ gem 'omniauth-twitter'
 gem 'uuidtools'
 gem 'figaro'
 gem "haml-rails", "~> 0.9"
+gem 'angularjs-rails', '>= 1.2.0.rc1'
+gem 'ngmin-rails'
+gem 'bootstrap-sass', '~> 3.3.4'
+gem 'sass-rails', '>= 3.2'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

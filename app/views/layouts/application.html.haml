@@ -1,10 +1,32 @@
 !!!
-%html
+%html{:lang => "en"}
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Angularmongo
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %title
+      = content_for(:title) ? yield(:title) : "angular & mongo"
+    = stylesheet_link_tag 'application'
     = csrf_meta_tags
   %body
-    = yield
+    %nav.top-bar
+      %ul.title-area
+        / Title Area
+        %li.name
+          %h1
+            %a{:href => "#"} angular
+        / Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
+        %li.toggle-topbar.menu-icon
+          %a{:href => "#"}
+            %span Menu
+      %section.top-bar-section
+        / Right Nav Section
+        %ul.right
+          %li.divider.show-for-small
+          - if user_signed_in?
+            signed in
+          - else
+            %li.has-form
+              %a.button{:href => "/users/sign_up"} Sign up
+    .row
+      = yield
+    = javascript_include_tag "application"
+      
